@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* CSS Document */
+
+.intro h1{
+	text-shadow: white 0.1em 0.1em 0.2em;
+	color: #FFFFFF;
+	text-align:center;
+	font-family: "Comic Sans MS", cursive;
+	font-size: 80px;
+
+}
+
+.intro h1 +.intro{
+	float: left;
+	width:20px;
+	background-repeat : no-repeat;
+
+}
+label.firstname,label.lastname,label.birthday,label.sex,label.faculty,label.one,label.two,label.three,label.four,label.five,label.six,label.sev{
+	font-weight: bold;
+	font-size:22px;
+	margin-left: 30px;
+	color:#191970;
+
+}
+
+
+
+a:link {
+	color:white;
+}
+
+a:visited{
+     color: #BA55D3;
+}
+
+a:hover{
+     color: #CD5C5C;
+}
+
+a:active{
+     color:white;
+}
+table{
+	font-weight: bold;
+  font-size: 22px;
+  background-color: #DCDCDC;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	margin: 60px auto;
+	width: 450px;
+  height: 464px;
+	border: solid 1px #933;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+body{
+
+	background-image : url("../bokeh-cover-bg1.jpg");
+  font-family: "Raleway", Arial, Helvetica, sans-serif;
+	font-size:30px;
+	background-attachment: fixed;
+  background-size: cover;
+	font-weight: bold;
+}
