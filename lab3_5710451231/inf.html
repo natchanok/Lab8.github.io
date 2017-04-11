@@ -1,0 +1,697 @@
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>...Personal information...</title>
+<link rel="stylesheet" media="screen" href="styleP.css">
+
+</head>
+
+<body>
+<form id="myForm" action="action_page.php">
+<br><br>
+<fieldset>
+<legend>
+
+<h1><font color="white">Personal information</font></h1>
+</legend>
+   <table width="740" border="0" align="center" cellspacing="0">
+  <tr>
+    <td width="314" height="47"><br>
+First name :
+<input type="text" id="firstname" >&nbsp;</td>
+    <td width="208">&nbsp;</td>
+    <td width="212">&nbsp;</td>
+    </tr>
+  	<tr>
+    <td height="35">Last name :
+<input type="text" id="lastname"></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+      <td height="30">Address </td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+  <tr>
+      <td height="32">House number : 
+<input type="text" id="housenum" size="14"></td>
+      <td>Street : 
+<input type="text" id="street"></td>
+      <td>City : 
+<input type="text" id="city"></td>
+      </tr>
+  <tr>
+      <td height="28">Province : 
+<input type="text" id="province"></td>
+      <td>Zipcode : 
+<input type="text" id="zipcode" size="10"></td>
+      <td>&nbsp;</td>
+      </tr>
+  <tr>
+      <td><br>Phone number : 
+<input type="text" id="phone" placeholder="+662-xxx-xxxx"></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+  <tr>
+      <td><br>Cell phone number : 
+<input type="text" id="cellphone" placeholder="+66xx-xxx-xxxx" size="14"></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+  <tr>
+      <td><br>Birthday : 
+<input type="date" id="birthday"></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+  <tr>
+      <td><br>Citizenship number: : 
+<input type="text" id="cnumber" size="13"></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+  <tr>
+ 
+    <td><br>Zodiac Sign : 
+<select id ="zodiac_sign" >
+<option value="aries">aries</option>
+<option value="taurus">taurus</option>
+<option value="gemini">gemini</option> 
+<option value="cancer">cancer</option>
+<option value="leo">leo</option>
+<option value="virgo">virgo</option>
+<option value="scoripo">scoripo</option>
+<option value="sagittarius">sagittarius</option>
+<option value="capricorn">capricorn</option>
+<option value="aquarius">aquarius</option>
+<option value="pisces">pisces</option>
+</select></td>
+
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td><br>Zodiac Year : 
+<input type="text" id="zodiac_year" size="14" placeholder="ชวด,ฉลู,ขาล,ฯลฯ"></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+  
+    <td><br>Birthday of Week: 
+<select id ="birthweek" >
+<option value="Monday">Monday</option>
+<option value="Tuesday">Tuesday</option>
+<option value="Wednesday">Wednesday</option> 
+<option value="Thursday">Thursday</option>
+<option value="Friday">Friday</option>
+<option value="Saturday">Saturday</option>
+<option value="Sunday">Sunday</option>
+</select></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td></td>
+    <td><br><br><br>
+<input type="button" onClick="clickSave()" id="save" value="Save">
+<input type="button" onClick="clickCancel()" id="cancel" value="Cancel">
+<input type="button" onClick="clickSubmit()" id ="submit" value="Submit">
+
+
+</td>
+    <td>&nbsp;</td>
+    </tr>
+</table>
+
+
+</fieldset>
+</form>
+<div class="table" id="table" align="center">
+<table id ="tableShow" width="70%" cellpadding="10" cellspacing="5" bgcolor="#FFFFFF" bordercolor="#FF6666" height="100%">
+
+<tbody></tbody>
+</table>
+</div>
+
+
+<script type="text/javascript">
+
+var list = ["firstname","lastname","housenum","street","city","province","zipcode","phone","cellphone","birthday","cnumber","zodiac_sign","zodiac_year","birthweek"];
+
+for(var i= 0 ;i < list.length ;i++){
+		document.getElementById(list[i]).value = "";
+		document.cookie = document.getElementById(list[i]).value;
+		
+		
+}
+function clickSave(){
+	//alert(document.getElementsByName("firstname")[0].value);	
+	for(var i= 0 ;i < list.length ;i++){
+		
+		var tmp = list[i] + "=" + document.getElementById(list[i]).value;
+		document.cookie = tmp;
+	}
+	
+}
+
+function clickCancel(){
+	
+	/*document.cookie = "birthday=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "prov=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "zip=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "birth=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "zods=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "zody=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "zodiac_sign=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "zodiac_year=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "lastname=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "firstname=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "birthday=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "birthweek=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "city=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "province=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "zipcode=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";
+	document.cookie = "street=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";		
+	document.cookie = "phone=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";	
+	document.cookie = "cellphone=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";	
+	document.cookie = "cnumber=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";	
+	document.cookie = "housenum=; expires=Mon, 13 Feb 2017 00:00:00 UTC; path=/;";	*/
+		
+	for(var i= 0 ;i < list.length ;i++){
+		document.getElementById(list[i]).value = "";
+		document.cookie = document.getElementById(list[i]).value;
+		
+		
+	}
+	
+}
+      
+function clickSubmit(){
+	
+	clickSave();
+	/*alert(document.cookie);*/
+	var data = document.cookie;
+	var tmp = data.split(";");
+	
+	console.log(tmp);
+	var check = false;
+	var letter = /^[A-Za-z]+$/;
+	var num = /^[0-9]+$/;
+	var hou_num = /^[0-9/]+$/;
+	var text = "";
+	
+	for(var j=0;j<tmp.length;j++){
+		var datac = tmp[j].split("=");
+		
+		
+		if(j==0 || j==1 ||j==3 ||  j==4 || j==5){
+			console.log("a "+datac[1]);
+			console.log(datac[0]);
+			if (datac[1].match(letter)){
+				console.log("b "+datac[1]);
+				check = true;
+				console.log(check);
+			}
+			else{
+				
+				text += "กรุณากรอกข้อมูล"+"("+datac[0]+")";
+				check = false;
+				
+			}
+		}
+		else if (j==2){
+			console.log("fgftrhgtrhthth");
+			/*console.log("1: "+document.getElementById(tmp[j]).value)*/
+			if (datac[1].match(hou_num)){			
+				check = true;
+			}
+			else{
+				text += "กรุณากรอกบ้านเลขที่"+"("+datac[0]+")";
+				check = false;
+			}
+		}
+		
+		
+		else if (j==6){
+			var count = 0;;
+			
+			if (datac[1].length == 5){		
+				var n = datac[1];
+				console.log("n1: "+n);
+				for (a in n){
+					console.log("a1: "+n[a]);	
+					if(n[a].match(num)){
+						check = true;
+						console.log("checkzip: "+check);
+					}
+					else{
+						count +=1;
+						
+					}
+				}
+			}
+			else{
+				count += 1;		
+			}
+			
+			if(count >= 1){
+				check = false;
+				text += "กรุณากรอกเลขรหัสไปรษณีย์"+"("+datac[0]+")";
+			}
+			else{
+				check = true;
+			}
+		}
+		
+		
+		else if(j==7){
+			console.log("g "+datac[1]);		
+			if (datac[1] != ""){
+				var p = datac[1].split("-");
+				console.log("p: "+p[0]);
+				console.log("l:"+p[1]);	
+				var med = p[1];
+				var last = p[2];
+				if(med.length == 3 && last.length == 4){	
+					for (c in med){
+						console.log("c1:"+p[1]);	
+						console.log("c:"+med[c]);
+						if (med[c].match(num)){			
+								
+							check = true;
+							console.log("rgferg");
+						}
+						else{
+							check = false;
+							text += "กรุณากรอกเบอร์ให้ถูกต้อง"+"("+datac[0]+")";
+						
+							console.log("u77i7");
+						}
+					}
+					
+					for(d in last){
+						if (last[d].match(num)){
+							check = true;						
+						}
+						else{
+							check = false;
+							text += "กรุณากรอกเบอร์ให้ถูกต้อง"+"("+datac[0]+")";
+							console.log("ooooooooooo");
+							
+							
+						}
+						
+					}
+				}
+				else{
+					check = false;
+					text += "กรุณากรอกเบอร์ให้ถูกต้อง"+"("+datac[0]+")";
+				}
+			}
+			else{
+				check = false;
+				text += "กรุณากรอกเบอร์"+"("+datac[0]+")";	
+			}
+			
+			if(count >=1 ){
+				chck = true;
+			}
+			
+			
+		}
+		
+		else if(j==8){
+
+			if (datac[1] != ""){
+				var p = datac[1].split("-");
+				console.log("p: "+p[0]);
+				
+				var st = p[0];
+				var med = p[1];
+				var last = p[2];
+				if(st.length == 5){
+				/*for(b in st){*/
+					if (st[1] == 6 && st[2] == 6 && st[3].match(num) && st[4].match(num)){
+						console.log("st[1]: "+st[1]);
+						console.log("st[3]: "+st[3]);
+						console.log("st[4]: "+st[4]);
+						
+						for (c in med){
+							console.log("c1:"+ med);	
+							console.log("c:"+med[c]);
+							if (med[c].match(num)){			
+								
+								check = true;
+							/*console.log("rgferg");*/
+							}
+							else{
+								check = false;
+								text += "กรุณากรอกเบอร์มือถือให้ถูกต้อง"+"("+datac[0]+")";
+								
+							}
+						}					
+						for(d in last){
+							console.log("c2:"+ last);
+							console.log("cc:"+last[d]);
+							if (last[d].match(num)){
+								check = true;						
+							}
+							else{
+								check = false;
+								text += "กรุณากรอกเบอร์มือถือให้ถูกต้อง"+"("+datac[0]+")";
+							/*console.log("ooooooooooo");*/
+											
+							}					
+						}
+					}					
+					else{
+						/*console.log("hrhrh");*/
+						check = false;
+						text += "กรุณากรอกข้อมูลมือถือให้ถูกต้อง"+"("+datac[0]+")";
+					
+					}					
+				/*}*/
+				}			
+				else{
+				
+					check = false;
+					text += "กรุณากรอกเบอร์มือถือให้ครบ"+"("+datac[0]+")";	
+				
+				}
+			}
+			else{
+				check = false;
+				text += "กรุณากรอกเบอร์มือถือให้ครบ"+"("+datac[0]+")";	
+			}
+		}
+		
+		else if (j==9){
+			console.log("jjjj: "+datac[1]);
+			var date = datac[1].split("-");
+			if (date.length == 3){
+				check == true;	
+			}
+			else{
+				check = false;
+				text += "กรุณาเลือกวันเกิด"+"("+datac[0]+")";					
+			}			
+		}
+	
+		else if (j==10){
+			var count = 0;
+			
+			if (datac[1].length == 13){		
+				var n = datac[1];
+				console.log("n: "+n);
+				for (a in n){
+					console.log("a: "+n[a]);	
+					if(n[a].match(num)){
+						check = true;
+						console.log("checkc: "+check);
+					}
+					else{
+						count +=1;
+					}
+				}
+			}
+			else{
+				count+=1;
+			}
+			
+			if(count >= 1){
+				check = false;
+				text += "กรุณากรอกเลขบัตรประชาชนให้ถูกต้อง"+"("+datac[0]+")";		
+			}
+			else{
+				check = true;
+			}
+			
+		}
+		
+		/*else if (j==11){
+			var sign = ["พฤษภ","เมถุน","กรกฏ","สิงห์","กันย์","ตุลย์","พิจิก","มังกร","กุมภ์","มีน"]
+			var count = 0;
+			for(var a=0;a<sign.length;a++){
+				if(datac[1] == (sign[a])){
+					check = true;
+				}		
+				else{
+					check = false;
+				}
+			}			
+			if (count >=1 ){
+				check = false;
+				text += "กรุณากรอกราศี"+"("+datac[0]+")";	
+			}
+			else{
+				check = true;
+				
+			}			
+		}*/
+		
+		else if (j==11){
+			console.log("bbbbb");
+			var x = document.getElementById("zodiac_sign").selectedIndex;
+			/*console.log("c999 "+x);*/
+			
+			if (x < 0){
+				check = false;
+				text += "กรุณาเลือกกราศีเกิด"+"("+datac[0]+")";
+			}	
+			else{
+				console.log(" "+x);
+				check = true;
+			}
+			
+			
+		}
+		
+		else if (j==12){
+			var sign = ["ชวด","ฉลู","ขาล","เถาะ","มะโรง","มะเส็ง","มะเมีย","มะแม","วอก","ระกา","จอ","กุน"];
+			
+			var count = 0;
+			/*alert("check before = " + check);*/	
+			for(var a=0;a<sign.length;a++){
+				if(datac[1] == (sign[a])){
+					/*alert("processing = " + true);*/	
+					console.log("uuuuuuuuu");
+					count = 0;
+					break;
+				}	
+				else{
+					console.log("m: "+sign[a]);
+					console.log("data: "+datac[1]);
+					count +=1;
+				}
+			}	
+			
+			/*alert("check $count = " + count);*/
+			
+			if (count >=1 ){
+				check = false;
+				text += "กรุณากรอกปีนักษัตร"+"("+datac[0]+")";
+			}
+			else{
+				console.log("pppppppppppppp");
+				check = check & true;
+					
+			}
+			/*alert("check after = " + check);*/		
+		}
+		
+		
+		
+		else if (j==13){
+			
+			var x = document.getElementById("birthweek").selectedIndex;
+			if (x<0){
+				check = false;
+				text += "กรุณาเลือกวันเกิด"+"("+datac[0]+")";
+			}
+			else{
+				
+				check = check & true;
+			}
+		}
+	}
+		
+	if (check == true){	
+		/*alert("Data is correct to launch showData()");*/	
+		var show = document.cookie.split(";");
+		
+		//window.onload = showData(); 
+		showData();
+	}
+		
+	else if(check == false){
+			
+		console.log("Data is malformed");
+		alert(text);
+	}
+}
+
+function startUp(){
+	
+	document.getElementById("table").style.display = "none";
+	/*alert("table = " + document.getElementById("table").style.display);*/
+
+	var data = document.cookie;
+	/*if(data == ""){
+		console.log("data:: "+data);
+		alert("jub");
+	}*/
+	var strD;
+	var str = data.split(";");
+	for (var i=0; i<str.length;i++){
+ 		strD = str[i].split('=');
+		console.log("lo "+strD[0]);
+		
+		if(i==0){
+			
+			document.getElementById("firstname").value = strD[1];
+			/*firstname = strD[0];*/
+		}
+		
+		else if (i==1){
+			document.getElementById("lastname").value = strD[1];
+			/*lastname= strD[1];*/
+		}
+		else if (i==2){
+			document.getElementById("housenum").value = strD[1];
+		}
+		else if (i==3){
+			document.getElementById("street").value = strD[1];
+		}
+		else if (i==4){
+			document.getElementById("city").value = strD[1];
+		}
+		else if (i==5){
+			document.getElementById("province").value = strD[1];
+		}
+		else if (i==6){
+			document.getElementById("zipcode").value = strD[1];
+		}
+		else if (i==7){
+			document.getElementById("phone").value = strD[1];
+		}
+		else if (i==8){
+			document.getElementById("cellphone").value = strD[1];
+		}
+		
+		else if (i==9){
+			
+			console.log("ttttttt "+strD[1]);
+			document.getElementById("birthday").value = strD[1];
+		}
+		
+		else if (i==10){
+			document.getElementById("cnumber").value = strD[1];
+		}
+
+		/*else if (i==11){
+			document.getElementById("zodiac_sign").value = strD[1];
+		}*/
+		
+		else if(i== 11){
+			var sign = ["aries","taurus","gemini","cancer","leo","virgo","scoripo","sagittarius","capricorn","aquarius","pisces"];
+			for (var k =0; k<sign.length;k++){
+				console.log("sign: "+strD[1]);
+				if (strD[1] == sign[k]){
+					console.log("k: "+k)
+					document.getElementById("zodiac_sign").selectedIndex = k;
+					
+				}
+			}
+		
+		}
+		else if (i==12){
+			document.getElementById("zodiac_year").value = strD[1];
+		}
+		
+		else if(i== 13){
+			var week = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+			for (var k =0; k<week.length;k++){
+				console.log("week: "+strD[1]);
+				if (strD[1] == week[k]){
+					console.log("k: "+k)
+					document.getElementById("birthweek").selectedIndex = k;
+					
+				}
+			}
+		
+		}
+		
+	}
+	/*show = true;
+	set();*/
+	 
+}
+
+function showData(){
+	/*alert("In showData()");
+	alert("table before showData() = " + document.getElementById("table").style.display);*/
+	
+	document.getElementById("myForm").style.display = "none";
+	document.getElementById("cancel").style.display = "none";
+	document.getElementById("save").style.display = "none";
+	document.getElementById("submit").style.display = "none";
+	
+	document.getElementById("table").style.display = "block";
+	
+	
+	/*alert("table after showData() = " + document.getElementById("table").style.display);*/
+	var tableRef = document.getElementById('tableShow').getElementsByTagName('tbody')[0];
+
+	
+	var data = document.cookie;
+	var str = data.split(";");
+	/*for (var i=str.length-1 ; i!= -1 ;i--){*/
+	for (var i=0 ; i<str.length ;i++){	
+ 		strD = str[i].split("=");	
+		
+		var newRow   = tableRef.insertRow(tableRef.rows.length);
+		
+		var newCell  = newRow.insertCell(0);
+		var newText  = document.createTextNode(strD[0])
+		newCell.appendChild(newText);
+		
+		var newCell2  = newRow.insertCell(1);
+		var newText2  = document.createTextNode(strD[1])
+		newCell2.appendChild(newText2);
+
+
+		/*
+		var row = table.insertRow(0);
+		
+		var cell1 = row.insertCell(0);
+    	var cell2 = row.insertCell(1);
+		
+		console.log("j1: "+strD[0]);
+		console.log("j2: "+strD[1]);
+		
+		cell1.innerHTML = strD[0];
+   	 	cell2.innerHTML = strD[1];		
+		console.log("showData");*/
+	}
+	/*show = false;
+	set();*/
+}
+
+/*function set(){
+	if(show == false){
+		window.onload = showData();
+	}
+	
+	else if(show == true){
+		window.onload = startUp();
+	}
+}*/
+
+window.onload = startUp();
+</script>
+</body>
+</html>
+
