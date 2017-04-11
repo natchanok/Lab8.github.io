@@ -1,0 +1,310 @@
+<head>
+<title>Lab04</title>
+<link rel="stylesheet" type="text/css" href="style.css" >
+<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body onLoad="loadDatatoCombo()">
+
+<div class="intro" id="intro">
+<h1><img src="PersonalInfo-PlannerIcons.png" width="85" height="86"> Personal information</img></h1></div>  
+
+<div class="pro" id="pro" style="display:none">
+<h1>Province</h1></div>  
+<div class="img" id="img" style="display:none"></div>  
+<div class="captions" id="captions" style="display:none"><h2></h2></div>  
+
+
+<form id="myForm">
+
+<table width="740" border="0" align="center" cellspacing="0">
+  <tr><td width="300" height="47"><p><br>
+    <label class="firstname" for="firstname">First name :</label>
+    <input type="text" id ="firstname" border="2">
+  </p></td></tr>
+  <td width="300" height="47"><p>
+  <label class="lastname" for="lastname">
+    Lastname :</label>    
+  <input type="text" id ="lastname" border="2"></p></td></tr>
+  
+  <tr> <td width="300" height="47"><p><label class="birthday" for="birthday">Birthday :</label>  <input type="date" id ="birthday" border="2"> </p></td></tr>
+  <tr><td width="300" height="47">
+  <label class="gender" for="gender">Gender : </label>
+  <input type="radio" id="gender" value="male" name="gender" checked>male                                 
+<input type="radio" id="gender" value="female" name="gender">female</tr><tr>
+<td width="300" height="47"><label class="province" id="prov">Province:</label>
+  <select id="province" name="province"></select></tr>
+  <tr>
+    <td width="300" height="47">                           <input type="button" class="buttonS" onClick="checkData()" id="Submit" value="Submit">
+    <input type="button" onClick="clickCancel()" id="Cancel" class="buttonC" value="Cancel"></td></tr>
+  <tr>
+    <td width="300" height="47">&nbsp;</td></tr>
+
+
+</table>
+</form>
+<script>
+
+var list = ["firstname","lastname","birthday","gender","province"];
+
+function clickCancel(){
+	
+	for(var i= 0 ;i < list.length ;i++){
+		
+		console.log("list[i]: "+list[i].value);		
+		document.getElementById(list[i]).value = "";	
+	}	
+}
+
+function loadData(){
+	console.log("erfaaar");
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+	if(this.readyState == 4 && this.status == 200){
+		/*var img = "<img src='/province/"+$("#province").val()+".png'>";
+	
+		document.getElementById("demo").innerHTML= img+this.responseText;*/
+		$('#img').html("<img src='/province/"+$("#province").val()+".png'>");
+		$('#captions').html(this.responseText);
+		
+	}
+	};
+	xhttp.open("GET","/province/"+$("#province").val()+".txt",true);
+	xhttp.send();
+}
+
+
+function loadDatatoCombo(){
+	
+	
+	var read ="";
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	if(this.readyState == 4 && this.status == 200){
+		
+		read = this.responseText;
+		/*console.log("read data "+ read);*/
+		addComboBox(read);
+		/*return read;*/
+		/*return this.responseText;*/
+				
+		}
+	};
+	xhttp.open("GET","/province/allProvince.txt",true);
+	xhttp.send();
+	
+}
+
+function addComboBox(read){
+	
+	/*console.log("data: "+read);*/
+	var combo = document.getElementById("province");
+	combo.innerHTML = "";
+	var op = read.split(".txt");
+
+	for(var o in op){
+	
+		var newOption = document.createElement("option");
+		newOption.value = op[o];
+		newOption.innerHTML = op[o];
+		combo.options.add(newOption);
+	
+	}
+	clickCancel();
+	
+}
+function checkData(){
+	
+	var sex;
+	var age;
+	var fname ="";
+	var letter = /^[A-Za-z]+$/;
+	var check = false;
+	
+	for (var i= 0 ;i < list.length ;i++){
+		console.log("inlist");
+		if(i==0){
+			console.log("in: "+document.getElementById("firstname").value);
+			fname = $("#firstname").val();
+			/*fname = document.getElementById(list[i]).value;*/
+			console.log("fname: "+fname);
+			if(fname.match(letter)){
+				check = true;
+			}
+			else{
+				check = false;
+				alert("Please Fill your firstname");
+			}
+		}
+		else if (i ==1){
+			lname = $("#lastname").val();
+			if(fname.match(letter)){
+				check = true;
+			}
+			else{
+				check = false;
+				alert("Please Fill your lastname");
+			}
+		
+		}
+		else if(i==2){
+			
+			var birth = $('#birthday').val();
+			console.log("birth: "+birth);
+			
+			if(birth == ""){
+				console.log("birth1: "+birth);
+				
+				check = false;
+				console.log("chckbirth1: "+check);
+				alert("Please choose a birthday");
+			}
+			else{
+				check = true;
+				age = getAge(new Date($("#birthday").val()));
+				console.log("age: "+age);
+				
+				
+			}
+			
+		}
+		
+		/*else if(i==3){
+			console.log("gtthhj");
+			/*document.getElementById("gender").checked*/
+			 /*if ($("#gender").attr('checked',false)){
+				alert("Please choose man or woman");
+			 }
+			 console.log("sex: "+$('input[name = gender]:checked').text());
+			if ($('input[name = gender]:checked').val() == "male"){
+				console.log("male: "+$('input[name = gender]:checked').val() == "male");
+				sex = "male";
+				check = true;
+			}
+			else if ($('input[name = gender]:checked').val() == "female"){
+				check = true;
+				sex = "female";
+			}
+			
+			else{
+				
+				check = false;
+				alert("Please choose male or female");			
+			}
+			
+		}*/
+		
+		else if(i==3){
+			console.log("gtthhj");
+			console.log("s1: "+$('input[name=gender]:radio:checked').val());
+			
+			/*if ($('input[name=gender]:radio:checked').val() == "male"){
+				console.log("male: "+$('input[name = gender]:checked').val() == "male");
+				sex = "male";
+				check = true;
+			}*/
+			if ($('input[name=gender]:radio:checked').val() == "female"){
+				check = true;
+				sex = "female";
+			}
+			
+			else{
+				
+				check = true;
+				sex = "male";
+				/*alert("Please choose male or female");*/		
+			}
+			console.log("sex: "+sex);
+		}
+		
+		else if(i==4){
+			
+			console.log("province "+$('#province option:selected').text());
+			if($('#province option:selected').text() == ""){
+				check = false;
+				console.log("a "+$('#province option:selected').val());
+				alert("Please choose a province");
+			}
+
+			else{
+				console.log("b "+$('#province option:selected').text());
+				check = true;
+			}
+			
+		}
+		console.log("checkY: "+check);
+		
+	}
+	
+	console.log("check: "+check);
+	
+	if(check == true){
+		loadData();		
+		window.onload = showProvince(sex,age);
+	}
+
+	
+}
+
+
+function getAge(dateString) {
+	
+	console.log("dateString: "+dateString);
+	
+    var now = new Date();
+    var birth = new Date(dateString);
+    var age = now.getFullYear() - birth.getFullYear();
+    var m = now.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && now.getDate() < birth.getDate())){
+        age--;
+    }
+    return age;
+}
+
+function showProvince(sex,age){
+	
+	/*$( "#cancel" ).show("slow");*/
+	/*$("#intro").remove("intro h1");*/
+	/*$("h1").hide();*/
+	
+	$("#Cancel").hide();
+	$("#Submit").hide();
+	$("#myForm").hide();	
+	$("#table").show();	
+	$("#intro h1").hide();
+	$("#pro").show(); 
+	$("#img").fadeIn("slow"); 	
+	$("#captions").show(); 	
+	
+	if (age >=1 && age < 13){
+		console.log("age <=13");
+		$("body").css("background-image", "url('stitch-wallpaper.png')");
+		$(".img").css("margin-left","920px");
+		$(".pro h1").css("padding-left","680px");
+		$(".captions").css("margin-left","700px");
+		$(".captions").css("color","#FF6699");
+		$(".captions").css("background-color","#FFFFCC");		
+		$(".captions").css("font-family","'Kanit', sans-serif");
+		/*$(".captions").css("font-size","25px");
+		$(".captions").css("font-weight","bold");*/
+	}
+	else if(age >= 13){	
+	
+		if( sex == "female"){
+			$("body").css("background-image", "url('background-texture-pastel-colors.jpg')");
+			$(".captions").css("color","white");
+			$(".captions").css("background-color","#FF9999");
+		
+			
+		}
+		else if(sex == "male"){
+			$("body").css("background-image", "url('images.jpg')");
+			$(".captions").css("color","white");
+			$(".captions").css("background-color","#BEBEBE");
+		}
+	}
+}
+
+</script>
+</body>
+</html>
