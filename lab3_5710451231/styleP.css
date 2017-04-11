@@ -1,0 +1,293 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+a:link {
+	color : #6D2542;
+	text-decoration : none;
+}
+a:visited {
+	color : #999999;
+	text-decoration : none;
+}
+a:hover {
+	color : #999999;
+	text-decoration : underline;
+}
+a:active {
+	color : #999999;
+	text-decoration : none;
+}
+body {
+	background-image : url(Sky-Wallpaper-Hd-Photos.jpg);
+	background-attachment: fixed;
+	/*background : #E6E6FA;*/	
+	margin : 0 0 0 0;
+	padding : 0 0 0 0;
+}
+.page-wrapper {
+	width : 630px;
+	margin : auto;
+	padding : 0 0 100px 0;
+/*background-image : url(rounded.jpg);*/
+	background : #F0F8FF background-repeat : no-repeat;
+	background-position : bottom;
+	border : #999999 dotted 0;
+	position : relative;
+}
+header {
+	background : url(bgg.png) center top no-repeat transparent;
+	/*border : #999999 dotted 0;*/
+	width : 630px;
+	height : 387px;
+}
+
+.intro {
+	width : 400px;
+	margin : 0 0 0 0;
+	border : #999999 dotted 0;
+}
+
+.intro h1{
+	margin-bottom : 0px;
+	padding-top: 50px;
+	margin-top : 30px;
+	margin-left : 62px;
+	font-size : 80px;	
+}
+
+.intro h2{
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color : #8B4513;
+	font-size : 30px;
+	padding-top: 1px;
+	margin-left : 169px;	
+	margin-top : 1px;
+}
+
+.summary p:first-child{
+	font-size: 19px;
+}
+
+.summary p:last-child {
+	border : #000000 solid 0;
+	margin : -110px 10 95px 288px;
+	padding : 0 5 0 10px;
+	text-transform : uppercase;
+	width : 290px;
+	font-family : Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	font-weight : normal;
+	background : #F0F8FF;/*background : url(bullet.jpg) 0% 28% no-repeat transparent;*/
+}
+
+
+.supporting {
+	width : 350px;
+	margin : 0 0 0 0;
+}
+.preamble p, .explanation p, .participation p, .benefits p, .requirements p{
+	
+	font-size : 14px;
+	font: Georgia, "Times New Roman", Times, serif;
+	color : #000;
+	border-bottom : 0 dotted #999999;
+	position : relative;
+	width : 350px;
+	margin : 0 0 0 60px;
+}
+
+.preamble p{	
+	background : #FFFAF0	
+}
+
+.explanation p{	
+	background : #FFFAF0	
+}
+
+.participation p{	
+	background : #FFFAF0	
+}
+
+.benefits p{	
+	background : #FFFAF0	
+}
+
+.requirements p{
+	margin-bottom : 35px;
+	background : #FFFAF0	
+}
+
+.preamble h3 {
+	color : #666;
+	font-size : 20px;
+	/*background-image : url(st.gif);
+	background-repeat : no-repeat;
+	background-position : left top;*/
+	width : 286px;
+	height : 64px;
+	margin-bottom : -5px;
+}
+.explanation h3 {
+	color : #666;
+	/*background-image : url(st1.gif);
+	background-repeat : no-repeat;
+	background-position : left top;
+	width : 286px;
+	height : 66px;
+	margin-bottom : -5px;*/
+}
+.participation h3 {
+	font-size: 20px;
+	color : #666;
+	/*background-image : url(st.gif);
+	background-repeat : no-repeat;
+	background-position : left top;
+	width : 286px;
+	height : 66px;
+	margin-bottom : -5px;*/
+}
+.benefits h3 {
+	font-size: 20px;
+	color : #666;
+	top : 100px;
+	left:500px;
+	
+	/*background-image : url(st1.gif);
+	background-repeat : no-repeat;
+	background-position : left top;
+	width : 286px;
+	
+	margin-bottom : -5px;*/
+}
+.requirements h3 {		
+	/*border: solid 3px #000;*/
+	color : #666;
+	/*background-image : url(st.gif);
+	background-repeat : no-repeat;
+	background-position : left top;*/
+	width : 286px;
+	height : 66px;
+	margin-bottom : -5px;
+}
+header h1, header h2, .summary p:first-child {
+	font-family:"Times New Roman", Times, serif;
+	font-size : 23px;
+	color: #A0522D; 
+}
+
+/*p {
+	color : #999999;
+	font-size : 11px;
+	font-weight : normal;
+	line-height : 1.4em;
+	font-family : Geneva, Arial, Helvetica, sans-serif;
+}*/
+.sidebar {
+	position : absolute;
+	left : 160px;
+	right : auto;
+	top : 400px;
+	padding : 0 0 0 0;
+	margin-left : 270px;
+	width : 180px;
+	border : #666666 dotted 0;
+	background : url(orchid.jpg) bottom no-repeat transparent;
+	height : 810px;
+}
+.sidebar ul {
+	text-align : left;
+	list-style : none;
+	margin : 0 0 0 0;
+	padding : 0 0 15px 35px;
+	font-size : 10px;
+	font-family : Geneva, Arial, Helvetica, sans-serif;
+	border : #666666 dotted 0;
+	width : 120px;
+}
+.sidebar ul li {
+	margin : 0;
+	padding : 3px 0 3px 0;
+	border-bottom : 1px dotted #999999;
+}
+.sidebar ul li a, .sidebar ul li a:visited {
+	border-bottom : none;
+	outline : 0;
+}
+.sidebar ul li a:hover {
+	color : #999999;
+	text-decoration : underline;
+}
+.design-selection h3{
+	font-size : 10px;
+	color : #FFF;
+}
+.design-selection {
+	font-size : 0.9em;
+}
+.design-selection ul li {
+	font-size: 12px;
+	padding : 3px 0 3px 20px;
+	background : url(bullet.jpg) 2% 25% no-repeat transparent;
+	color : #666;
+
+}
+.design-selection a {
+	display : block;
+	font-size : 1.1em;
+	color : #6D2542;
+}
+.design-selection a.designer-name {
+	display : inline;
+	line-height : 5px;
+	margin : 0;
+	padding : 0;
+	font : normal normal 1.0em/0.9em Geneva, Arial, Tahoma, sans-serif;
+	color : #999999;
+	letter-spacing : -1px;
+}
+.design-selection, .design-archives {
+	margin-bottom : 5px;
+	border : #000000 solid 0;
+}
+.design-archives ul li a, .zen-resources ul li a {
+	color : #6D2542;
+	font-size:12px;
+	padding : 3px 0 3px 20px;
+}
+.design-selection h3, .design-archives h3, .zen-resources h3 {
+	width : 196px;
+	height : 40px;
+	margin-bottom : -20px;
+	padding : 30px 0 0 35px;
+	font-family : Geneva, Arial, Helvetica, sans-serif;
+	font-size : 15px;
+	font-weight : normal;
+	text-transform : uppercase;
+	color : #666;
+}
+footer {
+	text-align : left;
+	padding : 0 0 0 0;
+	margin : 0 0 0 60px;
+}
+footer a, footer a:visited {
+	padding : 5px;
+	border : #eeeeee solid 1px;
+	background-color : #fff;
+	color : #666666;
+	font-family : Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+}
+footer a:hover {
+	padding : 5px;
+	border : #eeeeee solid 1px;
+	background-color : #eeeeee;
+	color : #999999;
+	font-family : Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	text-decoration : none;
+}
+.extra1, .extra2, .extra3, .extra4, .extra5, .extra6 {
+	display : none;
+}
